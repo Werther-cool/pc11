@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="con-r-item">
-    <img src="../assets/team-r3.png" alt="">
+    <img src="../assets/team-r3.png" alt="" v-if="lineType==0">
+    <img src="../assets/note-linetype1.png" alt="" v-if="lineType==1">
     <ul class="con-r-list clearfix">
       <li>
         <h4>美食定制：猝不及防吃吃</h4>
@@ -37,7 +38,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    lineType: {
+      type: Number,
+      default: 0
+    }
+  }
+}
 </script>
 
 <style scoped>

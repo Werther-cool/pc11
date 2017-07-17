@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import IndexPage from '@/components/container'
+import IndexPage from '@/pages/container'
 import Team from '@/pages/team'
 import Help from '@/pages/help'
 import About from '@/pages/about'
@@ -78,6 +78,7 @@ export default {
   text-align: center;
   position: relative;
 }
+
 
 
 

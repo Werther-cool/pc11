@@ -28,41 +28,41 @@
       </div>
 
       <ul class="clearfix">
-        <li>
+        <router-link :to="{ name: 'Detail', params: {lineType:1}}" tag="li">
           <img  class="love_img" src="../assets/t1.png" alt="">
           <div class="love_hover">
             <h3>寻找你心仪的另一半</h3>
             <p>众里寻他千百度</p>
           </div>
-        </li>
-        <li>
+        </router-link>
+        <router-link :to="{ name: 'Detail', params: {lineType:1}}" tag="li">
           <img  class="love_img" src="../assets/t2.png" alt="">
           <div class="love_hover">
             <h3>情侣之间的互动</h3>
             <p>增进感情,也考验着对方的用心</p>
           </div>
-        </li>
-        <li>
+        </router-link>
+        <router-link :to="{ name: 'Detail', params: {lineType:1}}" tag="li">
+          <img  class="love_img" src="../assets/t1.png" alt="">
+          <div class="love_hover">
+            <h3>寻找你心仪的另一半</h3>
+            <p>众里寻他千百度</p>
+          </div>
+        </router-link>
+        <router-link :to="{ name: 'Detail', params: {lineType:1}}" tag="li">
+          <img  class="love_img" src="../assets/t2.png" alt="">
+          <div class="love_hover">
+            <h3>寻找你心仪的另一半</h3>
+            <p>众里寻他千百度</p>
+          </div>
+        </router-link>
+        <router-link :to="{ name: 'Detail', params: {lineType:1}}" tag="li">
           <img  class="love_img" src="../assets/t3.png" alt="">
           <div class="love_hover">
-            <h3>更多互动中认识的朋友</h3>
-            <p>发现三观一致的人</p>
+            <h3>寻找你心仪的另一半</h3>
+            <p>众里寻他千百度</p>
           </div>
-      </li>
-        <li>
-        <img  class="love_img" src="../assets/t3.png" alt="">
-        <div class="love_hover">
-          <h3>更多互动中认识的朋友</h3>
-          <p>发现三观一致的人</p>
-        </div>
-        </li>
-          <li>
-          <img  class="love_img" src="../assets/t3.png" alt="">
-          <div class="love_hover">
-            <h3>更多互动中认识的朋友</h3>
-            <p>发现三观一致的人</p>
-          </div>
-          </li>
+        </router-link>
       </ul>
     </div>
     <div class="classic-f">
@@ -124,12 +124,14 @@
         </li>
       </ul>
     </div>
+
+
   </div>
 </template>
 
 <script>
 import Swiper from '../../static/swiper.min.js'
-
+import Detail from '@/pages/detail'
 export default {
   name: 'main',
   data() {

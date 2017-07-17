@@ -12,7 +12,7 @@
 <script>
 import myHeader from './components/myHeader.vue'
 import myFooter from './components/myFooter.vue'
-import container from './components/container.vue'
+import container from '@/pages/container.vue'
 import Team from '@/pages/team'
 import Help from '@/pages/help'
 import About from '@/pages/about'
@@ -132,6 +132,8 @@ video {
 
 
 
+
+
 /* HTML5 display-role reset for older browsers */
 
 article,
@@ -207,6 +209,14 @@ body {
 
 #app .font-red {
   color: #ff5d8b;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
 }
 
 .mt12 {

@@ -1,7 +1,11 @@
 <template lang="html">
   <div class="con-r-item">
-      <h2><img src="../assets/newline.png" alt=""></h2>
-      <span class="sign"><img src="../assets/line-sign.png" alt=""> </span>
+      <h2>
+        <img src="../assets/newline.png" alt="" v-if="lineType==0">
+        <img src="../assets/detail-linetype2.png" alt="" v-if="lineType==1">
+
+      </h2>
+      <!-- <span class="sign"><img src="../assets/line-sign.png" alt=""> </span> -->
       <ul class="clearfix item-ul">
         <li>
           <div class="li-l">
@@ -9,8 +13,6 @@
           </div>
           <div class="li-r">
             <h3>单身精品：【桃花源记不及咫尺】清远浸潭镇水西农庄桃花湖一日游</h3>
-
-              <p>出发时间:2017-10-05</p>
               <p>报名截止:2017-10-05</p>
             <div class="li-ft">
               ¥ <em>89</em> /人
@@ -23,8 +25,6 @@
           </div>
           <div class="li-r">
             <h3>单身精品：【桃花源记不及咫尺】清远浸潭镇水西农庄桃花湖一日游</h3>
-
-              <p>出发时间:2017-10-05</p>
               <p>报名截止:2017-10-05</p>
             <div class="li-ft">
               ¥ <em>89</em> /人
@@ -37,8 +37,6 @@
           </div>
           <div class="li-r">
             <h3>单身精品：【桃花源记不及咫尺】清远浸潭镇水西农庄桃花湖一日游</h3>
-
-              <p>出发时间:2017-10-05</p>
               <p>报名截止:2017-10-05</p>
             <div class="li-ft">
               ¥ <em>89</em> /人
@@ -51,8 +49,6 @@
           </div>
           <div class="li-r">
             <h3>单身精品：【桃花源记不及咫尺】清远浸潭镇水西农庄桃花湖一日游</h3>
-
-              <p>出发时间:2017-10-05</p>
               <p>报名截止:2017-10-05</p>
             <div class="li-ft">
               ¥ <em>89</em> /人
@@ -64,7 +60,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    lineType: {
+      type: Number,
+      default: 0
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -109,14 +112,15 @@ export default {}
 }
 
 .li-r p {
-  margin-top: 5px;
+  margin-top: 25px;
+  font-size: 14px;
 }
 
 .li-ft {
   color: #f15523;
   position: absolute;
   right: 5px;
-  bottom: 30px;
+  bottom: 20px;
   font-size: 12px;
 }
 

@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import IndexPage from '@/components/container'
+import IndexPage from '@/pages/container'
 import Team from '@/pages/team'
 import Help from '@/pages/help'
 import About from '@/pages/about'
 import Note from '@/pages/note'
+import Detail from '@/pages/detail'
 Vue.use(Router)
 
 export default new Router({
@@ -18,7 +19,12 @@ export default new Router({
     {
       path: '/index',
       name: 'IndexPage',
-      component: IndexPage
+      component: IndexPage,
+    },
+    {
+      path: '/index/detail',
+      name: 'Detail',
+      component: Detail,
     },
     {
       path:'/team',
