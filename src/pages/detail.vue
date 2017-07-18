@@ -7,11 +7,11 @@
             <a href="/index">首页></a>
             <a href="/detail/single">单身定制</a>
           </div>
-          <h2>单身交友: 深圳大鹏古城+小鼓浪屿较场尾悠闲小资之旅</h2>
+          <h2 v-text="detailInit.title">单身交友: 深圳大鹏古城+小鼓浪屿较场尾悠闲小资之旅</h2>
           <div class="con-l-title clearfix">
             <div class="title-l">
-              <img src="../assets/detail-title-img.png" alt="">
-              <p>shelly(领队)</p>
+              <img :src="detailInit.leader_litpic" alt="">
+              <p v-text="detailInit.nickname">shelly(领队)</p>
             </div>
             <div class="title-r ">
               <div class="title-key ">
@@ -22,47 +22,40 @@
               </div>
               <div class="title-val ">
                   <div class="val-btns">
-                    <a  v-for="(item,index) in timeList" :class="{on:nowTime == index}"
+                    <a  v-for="(item,index) in detailInit.timeList" :class="{on:nowTime == index}"
                       @click="checkTime(index)"
                     >{{item.con}}</a>
-
                   </div>
-                  <p>2017年07月16日</p>
-                  <p>07年16日 08:00</p>
-                  <p>体育西路地铁站</p>
+                  <p v-text="detailInit.booking_end">2017年07月16日</p>
+                  <p v-text="detailInit.linedate">07年16日 08:00</p>
+                  <p v-text="detailInit.meeting_point">体育西路地铁站</p>
               </div>
             </div>
             <div class="buy">
-              <span><em>¥118</em>/人 </span>
+              <span><em v-text="detailInit.originalprice">¥118</em>/人 </span>
               <a href="#">立即报名</a>
             </div>
           </div>
           <div class="partner">
-            <h4>结伴  (GG余席数:15,MM余席数:10)</h4>
-            <span><img src="../assets/detail-icon.png" alt=""></span>
-            <span><img src="../assets/detail-icon.png" alt=""></span>
-            <span><img src="../assets/detail-icon.png" alt=""></span>
-            <span><img src="../assets/detail-icon.png" alt=""></span>
-            <span><img src="../assets/detail-icon.png" alt=""></span>
-            <span><img src="../assets/detail-icon.png" alt=""></span>
-            <span><img src="../assets/detail-icon.png" alt=""></span>
+            <h4>结伴  (GG余席数:<em v-text="detailInit.male_inventory"></em>,MM余席数: <em v-text="detailInit.female_inventory"></em>)</h4>
+            <span v-for="even in detailInit.partners"><img :src="even.litpic" alt=""></span>
             ...
           </div>
           <div class="tag">
             <div class="tag-nav clearfix">
-              <li :class="{on:nowIndex == 0}" @click="checkNav(0)">活动详情</li>
-              <li :class="{on:nowIndex == 1}" @click="checkNav(1)">行程与准备</li>
-              <li :class="{on:nowIndex == 2}" @click="checkNav(2)">费用说明</li>
+              <li :class="{on:nowIndex == 0}" @click="checkNav(0,'reserved1')">活动详情</li>
+              <li :class="{on:nowIndex == 1}" @click="checkNav(1,'jieshao')">行程与准备</li>
+              <li :class="{on:nowIndex == 2}" @click="checkNav(2,'feeinclude')">费用说明</li>
               <li :class="{on:nowIndex == 3}" @click="checkNav(3)">所有评价</li>
             </div>
-            <div class="container">
+            <div class="container" v-html="menu" >
 
             </div>
           </div>
       </div>
       <div class="con-r">
-        <lineList :lineType="lineType"></lineList>
-        <hotnote :lineType="lineType"></hotnote>
+        <lineList :lineType="lineType" :lineList="lineList"></lineList>
+        <hotnote :lineType="lineType" :hotList="hotList"></hotnote>
       </div>
     </div>
   </div>
@@ -82,29 +75,85 @@ export default {
       lineType: this.$route.params.lineType,
       nowTime: 0,
       nowIndex: 0,
-      timeList: [{
-          con: "2017年07月16日 周六"
-        },
-        {
-          con: "2017年07月16日 周六"
-        },
-        {
-          con: "2017年07月16日 周日"
-        }
-      ]
+      lineList: [],
+      hotList: [],
+      detailInit: {},
+      container: {},
+      menu: {}
     }
   },
   mounted() {
+    var _this = this;
+    this.$nextTick(function() {
+      _this.init();
+    })
+
     console.log(this.$route.params.lineType);
   },
   methods: {
+    init() {
+      this.getLine();
+      this.getHot();
+      this.changeTime();
+      this.getCon();
+
+    },
     checkTime(val) {
       this.nowTime = val;
+      this.changeTime();
     },
-    checkNav(val) {
+    checkNav(val, name) {
       this.nowIndex = val;
-
+      this.menu = this.container[name];
+    },
+    getLine() {
+      this.$http.get('../static/data/line.json')
+        .then((res) => {
+          if (typeof res.data == "string") {
+            res = eval("(" + res.data + ")");
+            this.lineList = res;
+          } else {
+            this.lineList = res.data;
+          }
+        })
+    },
+    getHot() {
+      this.$http.get('../static/data/hotList.json')
+        .then((res) => {
+          if (typeof res.data == "string") {
+            res = eval("(" + res.data + ")");
+            this.hotList = res;
+          } else {
+            this.hotList = res.data;
+          }
+        })
+    },
+    changeTime() {
+      this.$http.get('../static/data/detailInit.json')
+        .then((res) => {
+          if (typeof res.data == "string") {
+            res = eval("(" + res.data + ")");
+            this.detailInit = res;
+          } else {
+            this.detailInit = res.data;
+          }
+        })
+    },
+    getCon() {
+      this.$http.get('../static/data/detailCon.json')
+        .then((res) => {
+          if (typeof res.data == "string") {
+            res = eval("(" + res.data + ")");
+            this.container = res;
+          } else {
+            this.container = res.data;
+          }
+          this.menu = this.container['reserved1'];
+        }, (err) => {
+          console.log(err)
+        })
     }
+
   }
 }
 </script>

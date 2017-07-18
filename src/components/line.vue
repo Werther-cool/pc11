@@ -7,7 +7,19 @@
       </h2>
       <!-- <span class="sign"><img src="../assets/line-sign.png" alt=""> </span> -->
       <ul class="clearfix item-ul">
-        <li>
+        <li v-for="item in lineList">
+          <div class="li-l">
+            <img :src="item.src" alt="">
+          </div>
+          <div class="li-r">
+            <h3 v-text="item.title">单身精品：【桃花源记不及咫尺】清远浸潭镇水西农庄桃花湖一日游</h3>
+              <p>报名截止: <em v-text="item.time"></em></p>
+            <div class="li-ft">
+              ¥ <em v-text="item.price">89</em> /人
+            </div>
+          </div>
+        </li>
+        <!-- <li>
           <div class="li-l">
             <img src="../assets/item-img.png" alt="">
           </div>
@@ -42,19 +54,7 @@
               ¥ <em>89</em> /人
             </div>
           </div>
-        </li>
-        <li>
-          <div class="li-l">
-            <img src="../assets/item-img.png" alt="">
-          </div>
-          <div class="li-r">
-            <h3>单身精品：【桃花源记不及咫尺】清远浸潭镇水西农庄桃花湖一日游</h3>
-              <p>报名截止:2017-10-05</p>
-            <div class="li-ft">
-              ¥ <em>89</em> /人
-            </div>
-          </div>
-        </li>
+        </li> -->
       </ul>
   </div>
 </template>
@@ -65,6 +65,34 @@ export default {
     lineType: {
       type: Number,
       default: 0
+    },
+    lineList: {
+      type: Array,
+      default: [{
+          src: require('../assets/item-img.png'),
+          title: "单身精品：【桃花源记不及咫尺】清远浸潭镇水西农庄桃花湖一日游",
+          time: "2017-10-05",
+          price: "89"
+        },
+        {
+          src: require('../assets/item-img.png'),
+          title: "单身精品：【桃花源记不及咫尺】清远浸潭镇水西农庄桃花湖一日游",
+          time: "2017-10-05",
+          price: "89"
+        },
+        {
+          src: require('../assets/item-img.png'),
+          title: "单身精品：【桃花源记不及咫尺】清远浸潭镇水西农庄桃花湖一日游",
+          time: "2017-10-05",
+          price: "89"
+        },
+        {
+          src: require('../assets/item-img.png'),
+          title: "单身精品：【桃花源记不及咫尺】清远浸潭镇水西农庄桃花湖一日游",
+          time: "2017-10-05",
+          price: "89"
+        },
+      ]
     }
   }
 }

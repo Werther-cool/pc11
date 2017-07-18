@@ -30,12 +30,12 @@
           <noteList :list="noteList"></noteList>
       </div>
       <div class="con-r">
-        <lineList></lineList>
-        <hotnote></hotnote>
+        <lineList :lineList="lineList"></lineList>
+        <hotnote :hotList="hotList"></hotnote>
       </div>
     </div>
     <div class="page">
-      <pagination :page-no="pageNo" :current="currentPage" @changePage="changePage( $event)"></pagination>
+      <pagination :page-no="pageNo" :current="currentPage" @changePage="changePage( $event)" ></pagination>
     </div>
   </div>
 </template>
@@ -59,141 +59,26 @@ export default {
       nowIndex: 1,
       nowType: 0,
       monthList: ["01月", "02月", "03月", "04月", "05月", "06月", "07月", "08月", "09月", "10月", "11月", "12月"],
-      noteList: [{
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 110
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 120,
-          comment: 402
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 40
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 40
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 40
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 40
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 40
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 40
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 40
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 40
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 40
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 40
-        },
-        {
-          title: "乘着铁游台湾（高雄、垦丁、花莲、九份）",
-          litpic: require("../assets/team-img.png"),
-          describe: "DAY1【香港转机】【起始】最近对出国旅行尤其东南亚很狂热，主要是签证门槛低，好刷签证，相对也比较便宜，还有就是国人少，这次去台湾虽然不能算出国，但是也是我亚洲线路的必须要踩的一个...",
-          icon: require("../assets/team-r3-1.png"),
-          name: "小天使",
-          time: "2017-10-01",
-          like: 12,
-          comment: 40
-        }
-      ],
-      pageNo: 10
+      noteList: [],
+      pageNo: 10,
+      hotList: [],
+      lineList: []
     }
   },
+  mounted() {
+    var _this = this;
+    this.$nextTick(function() {
+      _this.init();
+    })
+
+    console.log(this.$route.params.lineType);
+  },
   methods: {
+    init() {
+      this.requestData();
+      this.getHot();
+      this.getLine();
+    },
     changeBar(val) {
       this.barVal = val;
     },
@@ -203,12 +88,34 @@ export default {
     selectT(val) {
       this.nowType = val;
     },
-    requestData() {
-      // 在这里使用ajax或者fetch将对应页传过去获取数据即可
+    requestData() { //切换noteList数据
+      this.$http.get('../static/data/noteList.json')
+        .then((res) => {
+          if (typeof res.data == "string") {
+            res = eval("(" + res.data + ")");
+            this.noteList = res;
+          } else {
+            this.noteList = res.data;
+          }
+        })
     },
     changePage(val) {
       console.log(val);
-    }
+    },
+    getHot() {
+      this.$http.get('../static/data/hotList.json')
+        .then((res) => {
+          this.hotList = res.data;
+        })
+    },
+    getLine() {
+      this.$http.get('../static/data/line.json')
+        .then((res) => {
+          this.lineList = res.data;
+        }, (err) => {
+          console.log(err)
+        })
+    },
   },
   watch: {
     currentPage: 'requestData'

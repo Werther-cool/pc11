@@ -3,7 +3,17 @@
     <img src="../assets/team-r3.png" alt="" v-if="lineType==0">
     <img src="../assets/note-linetype1.png" alt="" v-if="lineType==1">
     <ul class="con-r-list clearfix">
-      <li>
+      <li v-for="item in hotList">
+        <h4 v-text="item.title">美食定制：猝不及防吃吃</h4>
+        <div class="li-ft">
+            <span><img :src="item.icon" alt=""></span>
+            <span v-text="item.name">小天使</span>
+            <span v-text="item.time">2017-10-01</span>
+            <span class="like" v-text="item.like">120</span>
+            <span class="comment" v-text="item.comment">46</span>
+        </div>
+      </li>
+      <!-- <li>
         <h4>美食定制：猝不及防吃吃</h4>
         <div class="li-ft">
             <span><img src="../assets/team-r3-1.png" alt=""></span>
@@ -22,17 +32,7 @@
             <span class="like">120</span>
             <span class="comment">46</span>
         </div>
-      </li>
-      <li>
-        <h4>美食定制：猝不及防吃吃</h4>
-        <div class="li-ft">
-            <span><img src="../assets/team-r3-1.png" alt=""></span>
-            <span>小天使</span>
-            <span>2017-10-01</span>
-            <span class="like">120</span>
-            <span class="comment">46</span>
-        </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </template>
@@ -43,6 +43,17 @@ export default {
     lineType: {
       type: Number,
       default: 0
+    },
+    hotList: {
+      type: Array,
+      default: [{
+        "title": "美食定制：猝不及防吃吃",
+        "icon": require("../assets/team-r3-1.png"),
+        "name": "小天使",
+        "time": "2017-10-01",
+        "like": "120",
+        "comment": "46"
+      }]
     }
   }
 }

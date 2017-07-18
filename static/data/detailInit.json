@@ -1,0 +1,43 @@
+{
+  title: "单身交友: 深圳大鹏古城+小鼓浪屿较场尾悠闲小资之旅",
+  leader_litpic: "../static/img/detail-title-img.png",
+  nickname: "shelly(领队)",
+  booking_end: "2017年07月16日",
+  linedate: "07年16日 08:00",
+  originalprice: "116",
+  meeting_point: "体育西路地铁站",
+  timeList: [{
+      con: "2017年07月16日 周六"
+    },
+    {
+      con: "2017年07月16日 周六"
+    },
+    {
+      con: "2017年07月16日 周日"
+    }
+  ],
+  female_inventory: 10,
+  male_inventory: 20,
+  partners: [{
+      litpic: "../static/img/detail-icon.png"
+    },
+    {
+      litpic: "../static/img/detail-icon.png"
+    },
+    {
+      litpic: "../static/img/detail-icon.png"
+    },
+    {
+      litpic: "../static/img/detail-icon.png"
+    },
+    {
+      litpic: "../static/img/detail-icon.png"
+    },
+    {
+      litpic: "../static/img/detail-icon.png"
+    },
+    {
+      litpic: "../static/img/detail-icon.png"
+    }
+  ]
+}
