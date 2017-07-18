@@ -164,7 +164,6 @@ export default {
   mounted() {
     // this.lunbo()
   },
-
   methods: {
     // lunbo() {
     //   var galleryTop = new Swiper('.swiper-container', {
@@ -173,7 +172,6 @@ export default {
     //     autoplayDisableOnInteraction: false
     //   })
     // }
-
   }
 }
 </script>

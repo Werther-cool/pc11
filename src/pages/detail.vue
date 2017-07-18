@@ -65,7 +65,6 @@
         <hotnote :lineType="lineType"></hotnote>
       </div>
     </div>
-
   </div>
 </template>
 
